@@ -7,13 +7,16 @@ const getUserData = async () => {
     properties: {
       username: {
         required: true,
+        description: 'username',
       },
       password: {
         hidden: true,
 				required: true,
+        description: 'password',
       },
     },
   };
+  prompt.message = 'OpenSubtitles credentials';
 	const { username, password } = await prompt.get(schema);
 	return { username, password };
 };

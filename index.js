@@ -21,6 +21,8 @@ app.get('/', (req, res) => {
 app.listen(port);
 
 const main = async () => {
+	console.log('storm-cli\n');
+	console.log('Enter your OpenSubtitles.org credentials: \n');
 	const data = await getUserData();
 	const { username, password } = data;
 	const OpenSubtitles = new OS({
@@ -29,9 +31,9 @@ const main = async () => {
 		password: password,
 		ssl: true,
 	});
-	const { input: movieId } = await getUserInput('Enter a movie', 'IMDbID');
+	const { input: movieId } = await getUserInput('enter a movie', 'IMDbID');
 	const hash = await getMovieTorrent(movieId);
-	const { input: language } = await getUserInput('Enter a language', 'lang');
+	const { input: language } = await getUserInput('enter a language', 'lang');
 	const allSubs = await OpenSubtitles.search({ imdbid: movieId });
 	const { vtt } = await allSubs[language];
 	await open(`http://localhost:${port}?hash=${hash}&sub=${vtt}`);
