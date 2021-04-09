@@ -82,6 +82,7 @@
       const params = (new URL(document.location)).searchParams;
 
       const hash = params.get('hash').toLowerCase();
+      const sub = params.get('sub');
 
       const torrentId = `magnet:?xt=urn:btih:${hash}&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com`;
 
@@ -107,6 +108,12 @@
 
         // Stream the file in the browser
         file.appendTo('#output')
+        const video = document.getElementsByTagName('video')[0];
+        video.setAttribute("crossorigin", "anonymous");
+        video.setAttribute("autoplay", "true");
+        let track = document.createElement("track");
+        track.setAttribute("src", sub);
+        video.appendChild(track);
 
         // Trigger statistics refresh
         torrent.on('done', onDone)
