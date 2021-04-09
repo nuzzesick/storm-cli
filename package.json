@@ -1,0 +1,20 @@
+{
+  "name": "storm-cli",
+  "version": "1.0.0",
+  "description": "Watch movies with subtitles from your browser using the CLI.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nuzze",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "node-pre-gyp": "^0.17.0",
+    "open": "^7.4.2",
+    "opensubtitles-api": "^5.1.2",
+    "prompt": "^1.1.0",
+    "webtorrent-hybrid": "^4.0.3"
+  }
+}
