@@ -55,7 +55,10 @@ const startDownloadingTorrent = (hash) => {
       console.log('You can watch the movie while is downloading!\n');
       torrent.on('done', () => {
         console.log('Download finished');
-        resolve();
+        client.seed('torrents', (torrent) => {
+          console.log('Client is seeding ' + torrent.magnetURI);
+          resolve();
+        });
       });
     });
   });
