@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  --primary: #b5b5b5;
+  --black: #181818;
+  --torrent-seed: #156117;
+  background-color: var(--black);
+}
+
+div, h1, h2, h3, h4, h5, h6, span, p, button, a {
+  font-family: 'Inter', sans-serif;
+}
+
+#hero {
+  height: 100vh;
+  background-color: var(--black);
+}
+
+#output video {
+  width: 100%;
+  height: 85vh;
+}
+
+#output video:focus {
+  border: none;
+  outline: 0;
+}
+
+#output video::cue {
+  background-color: red;
+}
+
+#progressBar {
+  height: 0.3rem;
+  width: 0%;
+  background-color: var(--primary);
+  transition: width 0.4s ease-in-out;
+}
+
+body.is-seed .show-seed {
+  display: inline;
+}
+
+body.is-seed .show-leech {
+  display: none;
+}
+
+.show-seed {
+  display: none;
+}
+
+#status {
+  color: #fff;
+  font-size: 1rem;
+  padding: 1rem 3rem;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#status code {
+  font-size: 90%;
+  font-weight: 700;
+  margin-left: 3px;
+  margin-right: 3px;
+  border-bottom: 1px dashed var(--primary);
+}
+
+.torrent-status {
+  display: flex;
+  flex-direction: column;
+}
+
+.is-seed #hero {
+  background-color: var(--torrent-seed);
+  transition: 0.5s 0.5s background-color ease-in-out;
+}
+
+a:link,
+a:visited {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+}
